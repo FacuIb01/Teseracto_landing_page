@@ -154,6 +154,19 @@ const hero = document.querySelector('.hero');
 const cubes = [...document.querySelectorAll('.hero-cube')];
 const about = document.querySelector('.about');
 const aboutCube = document.querySelector('.about-cube');
+const stories = [...document.querySelectorAll('.stories .story')];
+if (!reducedMotion.matches) {
+  stories.forEach(story => story.classList.add('is-pending'));
+  const storyObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.30) return;
+      entry.target.classList.remove('is-pending');
+      entry.target.classList.add('animate__animated', 'animate__fadeIn');
+      storyObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -20% 0px', threshold: 0.30 });
+  stories.forEach(story => storyObserver.observe(story));
+}
 let pointerX = 0, pointerY = 0, frame = 0;
 let easedPointerX = 0, easedPointerY = 0, previousMotionTime = 0;
 // Time constant in milliseconds: larger values make the mouse follow/return softer.
