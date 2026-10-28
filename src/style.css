@@ -69,15 +69,16 @@ h2 { font-size: 42px; line-height: 1.24; letter-spacing: -.02em; font-weight: 70
 .services { padding-top: 64px; padding-bottom: 80px; }
 .services h2 { margin-bottom: 36px; }
 .accordion { display: flex; flex-direction: column; gap: 12px; overflow-anchor: none; }
-.service { background: var(--ink); color: var(--cream); border: 1px solid transparent; border-radius: 12px; }
-.service[open] { background: var(--cream); color: var(--ink); border-color: var(--sky); }
+.service { background: var(--ink); color: var(--cream); border: 1px solid transparent; border-radius: 12px; transition: background-color .42s ease, color .42s ease, border-color .42s ease; }
+.service[open]:not(.is-closing) { background: var(--cream); color: var(--ink); border-color: var(--sky); }
+.service.is-animating { overflow: hidden; }
 .service summary { display: flex; align-items: center; gap: 28px; min-height: 86px; padding: 16px 31px; list-style: none; }
 .service summary::-webkit-details-marker { display: none; }
 .service summary::marker { content: ''; }
 .service-number { width: 56px; min-height: 40px; display: flex; align-items: center; flex-shrink: 0; border-right: 1px solid currentColor; font-size: 20px; font-weight: 400; }
 .service-label { flex: 1; font-size: 28px; line-height: 36px; font-weight: 600; }
-.chevron { flex: 0 0 28px; transition: transform .2s ease; }
-.service[open] .chevron { transform: rotate(180deg); }
+.chevron { flex: 0 0 28px; transition: transform .42s cubic-bezier(.22, 1, .36, 1); }
+.service[open]:not(.is-closing) .chevron { transform: rotate(180deg); }
 .service-panel { margin-inline: 31px; padding: 24px 0 31px; border-top: 1px solid var(--sky); display: grid; grid-template-columns: minmax(0, 570fr) minmax(0, 500fr); align-items: center; gap: clamp(32px, 6vw, 120px); min-height: 250px; }
 .service-content { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
 .service-content p { font-size: 22px; line-height: 34px; }

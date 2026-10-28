@@ -32,6 +32,11 @@ navigation.classList.add('is-enhanced');
 const accordion = document.querySelector('.accordion');
 const services = [...accordion.querySelectorAll('.service')];
 const summaries = services.map(service => service.querySelector('summary'));
+// Fraction of viewport height measured from the top; .5 is the screen center.
+const SERVICE_TRIGGER_RATIO = .52;
+const SERVICE_ANIMATION_MS = 420;
+const SERVICE_EASING = 'cubic-bezier(.22, 1, .36, 1)';
+const serviceAnimations = new Map();
 let manualScrollPosition = null;
 let keyboardNavigation = false;
 let activeService = -1;
@@ -50,15 +55,57 @@ document.addEventListener('click', event => {
   anchorTimer = setTimeout(() => { anchorNavigation = false; }, 1200);
 });
 
+function animateService(index, expanded) {
+  const service = services[index];
+  const panel = service.querySelector('.service-panel');
+  // Capture the current animated height so a quick reversal continues without a jump.
+  const startHeight = service.getBoundingClientRect().height;
+  const previous = serviceAnimations.get(service);
+  if (previous) {
+    previous.onfinish = null;
+    previous.cancel();
+    serviceAnimations.delete(service);
+  }
+  summaries[index].setAttribute('aria-expanded', String(expanded));
+  panel.inert = !expanded;
+  panel.setAttribute('aria-hidden', String(!expanded));
+  service.classList.toggle('is-closing', !expanded);
+
+  function finish() {
+    service.open = expanded;
+    service.style.removeProperty('height');
+    service.classList.remove('is-animating', 'is-closing');
+    serviceAnimations.delete(service);
+  }
+  if (reducedMotion.matches || !service.animate || (!expanded && !service.open)) {
+    finish();
+    return;
+  }
+  service.style.height = `${startHeight}px`;
+  service.classList.add('is-animating');
+  // Keep native content rendered during collapse; hide it only once the animation ends.
+  service.open = true;
+  const borderHeight = service.offsetHeight - service.clientHeight;
+  const endHeight = summaries[index].getBoundingClientRect().height + borderHeight
+    + (expanded ? panel.getBoundingClientRect().height : 0);
+  const animation = service.animate(
+    [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+    { duration: SERVICE_ANIMATION_MS, easing: SERVICE_EASING },
+  );
+  serviceAnimations.set(service, animation);
+  animation.onfinish = finish;
+}
+
 function openService(index) {
   if (activeService === index) return;
-  services.forEach((service, i) => {
-    service.open = i === index;
-    summaries[i].setAttribute('aria-expanded', String(i === index));
-  });
+  const previousIndex = activeService;
   activeService = index;
+  if (previousIndex >= 0) animateService(previousIndex, false);
+  if (index >= 0) animateService(index, true);
 }
 summaries.forEach((summary, index) => {
+  // JS manages exclusivity so the browser does not hide the closing panel prematurely.
+  services[index].removeAttribute('name');
   summary.setAttribute('aria-expanded', 'false');
   summary.addEventListener('click', event => {
     event.preventDefault();
@@ -80,7 +127,7 @@ document.addEventListener('pointerdown', () => { keyboardNavigation = false; }, 
 function updateServices() {
   if (reducedMotion.matches || anchorNavigation) return;
   const rect = accordion.getBoundingClientRect();
-  const line = innerHeight * .68;
+  const line = innerHeight * SERVICE_TRIGGER_RATIO;
   if (rect.bottom < 0 || rect.top > innerHeight) {
     manualScrollPosition = null;
     lastAutomaticIndex = -1;
@@ -108,16 +155,35 @@ const cubes = [...document.querySelectorAll('.hero-cube')];
 const about = document.querySelector('.about');
 const aboutCube = document.querySelector('.about-cube');
 let pointerX = 0, pointerY = 0, frame = 0;
-function updateMotion() {
-  if (reducedMotion.matches || document.hidden) return;
+let easedPointerX = 0, easedPointerY = 0, previousMotionTime = 0;
+// Time constant in milliseconds: larger values make the mouse follow/return softer.
+const POINTER_EASE_MS = 160;
+function updateMotion(now) {
+  if (reducedMotion.matches || document.hidden) {
+    previousMotionTime = 0;
+    return false;
+  }
+  let easing = false;
   const rect = hero.getBoundingClientRect();
   if (rect.bottom > 0 && rect.top < innerHeight) {
-    const travel = Math.max(-30, Math.min(45, -rect.top * (mobile.matches ? .025 : .06)));
+    const delta = previousMotionTime ? Math.min(now - previousMotionTime, 64) : 1000 / 60;
+    const blend = 1 - Math.exp(-delta / POINTER_EASE_MS);
+    easedPointerX += (pointerX - easedPointerX) * blend;
+    easedPointerY += (pointerY - easedPointerY) * blend;
+    if (Math.abs(pointerX - easedPointerX) < .001) easedPointerX = pointerX;
+    if (Math.abs(pointerY - easedPointerY) < .001) easedPointerY = pointerY;
+    easing = easedPointerX !== pointerX || easedPointerY !== pointerY;
+    previousMotionTime = easing ? now : 0;
+    const travel = Math.max(-30, Math.min(45, -rect.top * (mobile.matches ? .025 : .15)));
     cubes.forEach(cube => {
       const depth = Number(cube.dataset.depth);
-      cube.style.setProperty('--px', `${mobile.matches ? 0 : pointerX * depth * 7}px`);
-      cube.style.setProperty('--py', `${(travel + (mobile.matches ? 0 : pointerY * 5)) * depth}px`);
+      cube.style.setProperty('--px', `${mobile.matches ? 0 : easedPointerX * depth * 7}px`);
+      cube.style.setProperty('--py', `${(travel + (mobile.matches ? 0 : easedPointerY * 5)) * depth}px`);
     });
+  } else {
+    easedPointerX = pointerX;
+    easedPointerY = pointerY;
+    previousMotionTime = 0;
   }
   const aboutRect = about.getBoundingClientRect();
   if (aboutRect.bottom > 0 && aboutRect.top < innerHeight) {
@@ -125,16 +191,22 @@ function updateMotion() {
     aboutCube.style.setProperty('--float', `${progress * 10}px`);
     aboutCube.style.setProperty('--rotation', `${progress * 2}deg`);
   }
+  return easing;
 }
-function render() {
+function render(now) {
   frame = 0;
-  updateMotion();
+  const easing = updateMotion(now);
   if (Math.abs(window.scrollY - lastScrollY) > 1) updateServices();
   lastScrollY = window.scrollY;
+  // Keep drawing only until the mouse offset reaches its target, including on exit.
+  if (easing) requestRender();
 }
 function requestRender() { if (!frame) frame = requestAnimationFrame(render); }
 window.addEventListener('scroll', requestRender, { passive: true });
 window.addEventListener('resize', requestRender, { passive: true });
+window.addEventListener('resize', () => {
+  serviceAnimations.forEach(animation => animation.finish());
+}, { passive: true });
 hero.addEventListener('pointermove', event => {
   if (event.pointerType !== 'mouse' || reducedMotion.matches) return;
   const rect = hero.getBoundingClientRect();
@@ -152,6 +224,10 @@ function syncMotionPreference() {
   brands.classList.toggle('is-animated', !reducedMotion.matches);
   marqueeButton.hidden = reducedMotion.matches;
   if (reducedMotion.matches) {
+    services.forEach((service, index) => {
+      if (serviceAnimations.has(service)) animateService(index, index === activeService);
+    });
+    pointerX = pointerY = easedPointerX = easedPointerY = previousMotionTime = 0;
     cubes.forEach(cube => { cube.style.removeProperty('--px'); cube.style.removeProperty('--py'); });
     aboutCube.style.removeProperty('--float');
     aboutCube.style.removeProperty('--rotation');

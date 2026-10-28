@@ -1,101 +1,588 @@
 <!doctype html>
 <html lang="es-AR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#114C5F">
-  <meta name="description" content="Software a medida, automatizaciones y ecommerce. En Teseracto pensamos con vos cómo hacer realidad tu próxima idea.">
-  <title>Teseracto — Pensar más, Hacer mejor</title>
-  <link rel="icon" type="image/png" href="./assets/branding/teseracto-logo-v3.png">
-  <link rel="stylesheet" href="./assets/fonts/fonts.css">
-  <link rel="stylesheet" href="./src/style.css">
-  <script type="module" src="./src/main.js"></script>
-</head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header" id="inicio">
-    <nav class="navigation page-width" aria-label="Navegación principal">
-      <a class="nav-brand" href="#inicio" aria-label="Teseracto, inicio">TESERACTO</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú" hidden>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-        <svg class="menu-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-      </button>
-      <ul class="nav-links" id="nav-links"><li><a href="#servicios">Servicios</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#contacto">Contacto</a></li></ul>
-    </nav>
-  </header>
-  <main id="contenido" tabindex="-1">
-    <section class="hero page-width" aria-labelledby="hero-title">
-      <div class="hero-shapes" aria-hidden="true">
-        <img class="hero-cube c1" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.6">
-        <img class="hero-cube c2" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.4">
-        <img class="hero-cube c3" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.8">
-        <img class="hero-cube c4" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.6">
-        <img class="hero-cube c5" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.5">
-        <img class="hero-cube c6" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.8">
-        <img class="hero-cube c7" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.4">
-        <img class="hero-cube c8" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.4">
-        <img class="hero-cube c9" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.8">
-        <img class="hero-cube c10" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.5">
-        <img class="hero-cube c11" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.7">
-        <img class="hero-cube c12" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="-0.6">
-        <img class="hero-cube c13" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" data-depth="0.3">
-      </div>
-      <div class="hero-identity"><h1 id="hero-title">TESERACTO</h1><p class="motto">Pensar más, Hacer mejor</p></div>
-    </section>
-    <section class="services page-width section-gutter" id="servicios" aria-labelledby="services-title" tabindex="-1">
-      <h2 id="services-title">Nuestros servicios</h2>
-      <div class="accordion">
-        <details class="service" name="servicios" id="software">
-          <summary id="software-heading" aria-controls="software-panel"><span class="service-number">01</span><span class="service-label">Software a Medida</span><svg class="chevron" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 10L14 19L23 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="service-panel" id="software-panel" role="region" aria-labelledby="software-heading"><div class="service-content"><p>Desarrollamos soluciones digitales adaptadas a tu negocio, para simplificar procesos y acompañar tu crecimiento.</p><a class="button" href="#contacto">Contactanos</a></div><img class="service-art" src="./assets/illustrations/software.svg" width="420" height="210" loading="lazy" alt="" aria-hidden="true"></div>
-        </details>
-        <details class="service" name="servicios" id="automatizaciones">
-          <summary id="automation-heading" aria-controls="automation-panel"><span class="service-number">02</span><span class="service-label">Automatizaciones</span><svg class="chevron" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 10L14 19L23 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="service-panel" id="automation-panel" role="region" aria-labelledby="automation-heading"><div class="service-content"><p>Conectamos herramientas y automatizamos tareas para que puedas dedicar más tiempo a lo que hace crecer tu negocio.</p><a class="button" href="#contacto">Contactanos</a></div><img class="service-art" src="./assets/illustrations/automation.svg" width="420" height="210" loading="lazy" alt="" aria-hidden="true"></div>
-        </details>
-        <details class="service" name="servicios" id="ecommerce">
-          <summary id="ecommerce-heading" aria-controls="ecommerce-panel"><span class="service-number">03</span><span class="service-label">Servicios de Ecommerce</span><svg class="chevron" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M5 10L14 19L23 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="service-panel" id="ecommerce-panel" role="region" aria-labelledby="ecommerce-heading"><div class="service-content"><p>Creamos y mejoramos tu tienda online para que comprar sea simple y vender sea parte de tu crecimiento.</p><a class="button" href="#contacto">Contactanos</a></div><img class="service-art" src="./assets/illustrations/ecommerce.svg" width="420" height="210" loading="lazy" alt="" aria-hidden="true"></div>
-        </details>
-      </div>
-    </section>
-    <section class="about page-width section-gutter" id="nosotros" aria-labelledby="about-title" tabindex="-1">
-      <p class="eyebrow">QUIÉNES SOMOS</p><h2 id="about-title">Una idea. Muchas posibilidades.</h2>
-      <div class="about-diagram">
-        <img class="about-cube" src="./assets/branding/teseracto-logo-v3.png" width="1280" height="1280" alt="" loading="lazy" aria-hidden="true">
-        <div class="stories">
-          <article class="story story-one"><span class="story-number">01</span><h3>Quiénes somos</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p></article>
-          <article class="story story-two"><span class="story-number">02</span><h3>Qué nos mueve</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p></article>
-          <article class="story story-three"><span class="story-number">03</span><h3>Cómo trabajamos</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></article>
-        </div>
-        <svg class="about-connections" viewBox="0 0 1312 610" fill="none" aria-hidden="true"><path d="M386 136H420L456 163M848 100H874L904 77M656 390V440" stroke="#9CD2D3" stroke-width="1.5"/><g fill="#9CD2D3"><circle cx="386" cy="136" r="4"/><circle cx="456" cy="163" r="4"/><circle cx="848" cy="100" r="4"/><circle cx="904" cy="77" r="4"/><circle cx="656" cy="390" r="4"/><circle cx="656" cy="440" r="4"/></g></svg>
-      </div>
-    </section>
-    <section class="brands" aria-labelledby="brands-title">
-      <div class="page-width brands-inner">
-        <h2 id="brands-title">Nos eligieron para ir más allá</h2>
-        <button class="marquee-toggle" type="button" aria-label="Pausar movimiento de las marcas" aria-pressed="false" hidden><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path class="pause-symbol" d="M6 3V15M12 3V15" stroke="currentColor" stroke-width="2"/><path class="play-symbol" d="M5 3L14 9L5 15Z" fill="currentColor"/></svg></button>
-        <div class="brand-window"><div class="brand-track">
-          <div class="brand-group"><span class="brand-slot"><img class="lacoste" src="./assets/branding/lacoste-original.png" width="300" height="80" alt="Lacoste" loading="lazy"></span><span class="brand-slot cambru">CAMBRU</span><span class="brand-slot" aria-hidden="true"><img class="lacoste" src="./assets/branding/lacoste-original.png" width="300" height="80" alt="" loading="lazy"></span><span class="brand-slot cambru" aria-hidden="true">CAMBRU</span></div>
-          <div class="brand-group" aria-hidden="true"><span class="brand-slot"><img class="lacoste" src="./assets/branding/lacoste-original.png" width="300" height="80" alt="" loading="lazy"></span><span class="brand-slot cambru">CAMBRU</span><span class="brand-slot"><img class="lacoste" src="./assets/branding/lacoste-original.png" width="300" height="80" alt="" loading="lazy"></span><span class="brand-slot cambru">CAMBRU</span></div>
-        </div></div>
-      </div>
-    </section>
-    <section class="contact" id="contacto" aria-labelledby="contact-title" tabindex="-1">
-      <div class="contact-inner page-width">
-        <div class="contact-intro"><p class="eyebrow">HABLEMOS</p><h2 id="contact-title">Tu próxima idea<br>empieza acá.</h2><p class="contact-description">Contanos qué tenés en mente y pensemos cómo hacerlo realidad.</p><img class="contact-cube" src="./assets/branding/teseracto-logo-dark-background-v1.png" width="1280" height="1280" loading="lazy" alt="" aria-hidden="true"></div>
-        <form id="contact-form" aria-describedby="contact-help">
-          <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="vos@empresa.com" required maxlength="254" aria-describedby="email-error"><p class="field-error" id="email-error" hidden></p></div>
-          <div class="form-field"><label for="idea">Tu idea</label><input id="idea" name="idea" type="text" placeholder="Un título para tu proyecto" required maxlength="120" aria-describedby="idea-error"><p class="field-error" id="idea-error" hidden></p></div>
-          <div class="form-field"><label for="message">Contanos un poco más</label><textarea id="message" name="message" placeholder="¿Qué te gustaría crear o mejorar?" required maxlength="1500" rows="5" aria-describedby="message-error"></textarea><p class="field-error" id="message-error" hidden></p></div>
-          <div class="form-actions"><button class="button contact-submit" type="submit" disabled>Conversemos <span aria-hidden="true">→</span></button><p class="form-help" id="contact-help">Se abrirá tu aplicación de correo con el mensaje para que confirmes el envío.</p></div>
-          <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <div class="contact-alternative"><a href="mailto:Facundoemiliano.21@gmail.com">Facundoemiliano.21@gmail.com</a><button id="copy-message" class="text-button" type="button" hidden>Copiar mensaje</button></div>
-          <noscript><p>Para escribirnos, usá el enlace de correo de arriba. El formulario necesita JavaScript.</p></noscript>
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer"><div class="footer-inner page-width"><p class="copyright">© <span id="year">2026</span> Teseracto. <span>Todos los derechos reservados.</span></p><p class="motto">Pensar más, Hacer mejor</p></div></footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#114C5F" />
+		<meta
+			name="description"
+			content="Software a medida, automatizaciones y ecommerce. En Teseracto pensamos con vos cómo hacer realidad tu próxima idea."
+		/>
+		<title>Teseracto — Pensar más, Hacer mejor</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="./assets/branding/teseracto-logo-v3.png"
+		/>
+		<link rel="stylesheet" href="./assets/fonts/fonts.css" />
+		<link rel="stylesheet" href="./src/style.css" />
+		<script type="module" src="./src/main.js"></script>
+	</head>
+	<body>
+		<a class="skip-link" href="#contenido">Saltar al contenido</a>
+		<header class="site-header" id="inicio">
+			<nav class="navigation page-width" aria-label="Navegación principal">
+				<a class="nav-brand" href="#inicio" aria-label="Teseracto, inicio"
+					>TESERACTO</a
+				>
+				<button
+					class="menu-toggle"
+					type="button"
+					aria-expanded="false"
+					aria-controls="nav-links"
+					aria-label="Abrir menú"
+					hidden
+				>
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M3 6H21M3 12H21M3 18H21"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+						/>
+					</svg>
+					<svg
+						class="menu-close-icon"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M5 5L19 19M19 5L5 19"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</button>
+				<ul class="nav-links" id="nav-links">
+					<li><a href="#servicios">Servicios</a></li>
+					<li><a href="#nosotros">Nosotros</a></li>
+					<li><a href="#contacto">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="contenido" tabindex="-1">
+			<section class="hero page-width" aria-labelledby="hero-title">
+				<div class="hero-shapes" aria-hidden="true">
+					<img
+						class="hero-cube c1 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.6"
+					/>
+					<img
+						class="hero-cube c2 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.4"
+					/>
+					<img
+						class="hero-cube c3 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.8"
+					/>
+					<img
+						class="hero-cube c4 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.6"
+					/>
+					<img
+						class="hero-cube c5 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.5"
+					/>
+					<img
+						class="hero-cube c6 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.8"
+					/>
+					<img
+						class="hero-cube c7 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.4"
+					/>
+					<img
+						class="hero-cube c8 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.4"
+					/>
+					<img
+						class="hero-cube c9 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.8"
+					/>
+					<img
+						class="hero-cube c10 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.5"
+					/>
+					<img
+						class="hero-cube c11 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.7"
+					/>
+					<img
+						class="hero-cube c12 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="-0.6"
+					/>
+					<img
+						class="hero-cube c13 animate__animated animate__fadeIn"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						data-depth="0.3"
+					/>
+				</div>
+				<div class="hero-identity">
+					<h1 id="hero-title" class="animate__animated animate__fadeInDown">TESERACTO</h1>
+					<p class="animate__animated animate__fadeInUp motto">Pensar más, Hacer mejor</p>
+				</div>
+			</section>
+			<section
+				class="services page-width section-gutter"
+				id="servicios"
+				aria-labelledby="services-title"
+				tabindex="-1"
+			>
+				<h2 id="services-title">Nuestros servicios</h2>
+				<div class="accordion">
+					<details class="service" name="servicios" id="software">
+						<summary id="software-heading" aria-controls="software-panel">
+							<span class="service-number">01</span
+							><span class="service-label">Software a Medida</span
+							><svg
+								class="chevron"
+								width="28"
+								height="28"
+								viewBox="0 0 28 28"
+								fill="none"
+								aria-hidden="true"
+							>
+								<path
+									d="M5 10L14 19L23 10"
+									stroke="currentColor"
+									stroke-width="2.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</summary>
+						<div
+							class="service-panel"
+							id="software-panel"
+							role="region"
+							aria-labelledby="software-heading"
+						>
+							<div class="service-content">
+								<p>
+									Desarrollamos soluciones digitales adaptadas a tu negocio,
+									para simplificar procesos y acompañar tu crecimiento.
+								</p>
+								<a class="button" href="#contacto">Contactanos</a>
+							</div>
+							<img
+								class="service-art"
+								src="./assets/illustrations/software.svg"
+								width="420"
+								height="210"
+								loading="lazy"
+								alt=""
+								aria-hidden="true"
+							/>
+						</div>
+					</details>
+					<details class="service" name="servicios" id="automatizaciones">
+						<summary id="automation-heading" aria-controls="automation-panel">
+							<span class="service-number">02</span
+							><span class="service-label">Automatizaciones</span
+							><svg
+								class="chevron"
+								width="28"
+								height="28"
+								viewBox="0 0 28 28"
+								fill="none"
+								aria-hidden="true"
+							>
+								<path
+									d="M5 10L14 19L23 10"
+									stroke="currentColor"
+									stroke-width="2.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</summary>
+						<div
+							class="service-panel"
+							id="automation-panel"
+							role="region"
+							aria-labelledby="automation-heading"
+						>
+							<div class="service-content">
+								<p>
+									Conectamos herramientas y automatizamos tareas para que puedas
+									dedicar más tiempo a lo que hace crecer tu negocio.
+								</p>
+								<a class="button" href="#contacto">Contactanos</a>
+							</div>
+							<img
+								class="service-art"
+								src="./assets/illustrations/automation.svg"
+								width="420"
+								height="210"
+								loading="lazy"
+								alt=""
+								aria-hidden="true"
+							/>
+						</div>
+					</details>
+					<details class="service" name="servicios" id="ecommerce">
+						<summary id="ecommerce-heading" aria-controls="ecommerce-panel">
+							<span class="service-number">03</span
+							><span class="service-label">Servicios de Ecommerce</span
+							><svg
+								class="chevron"
+								width="28"
+								height="28"
+								viewBox="0 0 28 28"
+								fill="none"
+								aria-hidden="true"
+							>
+								<path
+									d="M5 10L14 19L23 10"
+									stroke="currentColor"
+									stroke-width="2.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</summary>
+						<div
+							class="service-panel"
+							id="ecommerce-panel"
+							role="region"
+							aria-labelledby="ecommerce-heading"
+						>
+							<div class="service-content">
+								<p>
+									Creamos y mejoramos tu tienda online para que comprar sea
+									simple y vender sea parte de tu crecimiento.
+								</p>
+								<a class="button" href="#contacto">Contactanos</a>
+							</div>
+							<img
+								class="service-art"
+								src="./assets/illustrations/ecommerce.svg"
+								width="420"
+								height="210"
+								loading="lazy"
+								alt=""
+								aria-hidden="true"
+							/>
+						</div>
+					</details>
+				</div>
+			</section>
+			<section
+				class="about page-width section-gutter"
+				id="nosotros"
+				aria-labelledby="about-title"
+				tabindex="-1"
+			>
+				<p class="eyebrow">QUIÉNES SOMOS</p>
+				<h2 id="about-title">Una idea. Muchas posibilidades.</h2>
+				<div class="about-diagram">
+					<img
+						class="about-cube"
+						src="./assets/branding/teseracto-logo-v3.png"
+						width="1280"
+						height="1280"
+						alt=""
+						loading="lazy"
+						aria-hidden="true"
+					/>
+					<div class="stories">
+						<article class="story story-one animate__animated animate__fadeInLeft">
+							<span class="story-number">01</span>
+							<h3>Quiénes somos</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor.
+							</p>
+						</article>
+						<article class="story story-two">
+							<span class="story-number">02</span>
+							<h3>Qué nos mueve</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor.
+							</p>
+						</article>
+						<article class="story story-three">
+							<span class="story-number">03</span>
+							<h3>Cómo trabajamos</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</article>
+					</div>
+					<svg
+						class="about-connections"
+						viewBox="0 0 1312 610"
+						fill="none"
+						aria-hidden="true"
+					>
+						<path
+							d="M386 136H420L456 163M848 100H874L904 77M656 390V440"
+							stroke="#9CD2D3"
+							stroke-width="1.5"
+						/>
+						<g fill="#9CD2D3">
+							<circle cx="386" cy="136" r="4" />
+							<circle cx="456" cy="163" r="4" />
+							<circle cx="848" cy="100" r="4" />
+							<circle cx="904" cy="77" r="4" />
+							<circle cx="656" cy="390" r="4" />
+							<circle cx="656" cy="440" r="4" />
+						</g>
+					</svg>
+				</div>
+			</section>
+			<section class="brands" aria-labelledby="brands-title">
+				<div class="page-width brands-inner">
+					<h2 id="brands-title">Nos eligieron para ir más allá</h2>
+					<button
+						class="marquee-toggle"
+						type="button"
+						aria-label="Pausar movimiento de las marcas"
+						aria-pressed="false"
+						hidden
+					>
+						<svg
+							width="18"
+							height="18"
+							viewBox="0 0 18 18"
+							fill="none"
+							aria-hidden="true"
+						>
+							<path
+								class="pause-symbol"
+								d="M6 3V15M12 3V15"
+								stroke="currentColor"
+								stroke-width="2"
+							/>
+							<path
+								class="play-symbol"
+								d="M5 3L14 9L5 15Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</button>
+					<div class="brand-window">
+						<div class="brand-track">
+							<div class="brand-group">
+								<span class="brand-slot"
+									><img
+										class="lacoste"
+										src="./assets/branding/lacoste-original.png"
+										width="300"
+										height="80"
+										alt="Lacoste"
+										loading="lazy" /></span
+								><span class="brand-slot cambru">CAMBRU</span
+								><span class="brand-slot" aria-hidden="true"
+									><img
+										class="lacoste"
+										src="./assets/branding/lacoste-original.png"
+										width="300"
+										height="80"
+										alt=""
+										loading="lazy" /></span
+								><span class="brand-slot cambru" aria-hidden="true"
+									>CAMBRU</span
+								>
+							</div>
+							<div class="brand-group" aria-hidden="true">
+								<span class="brand-slot"
+									><img
+										class="lacoste"
+										src="./assets/branding/lacoste-original.png"
+										width="300"
+										height="80"
+										alt=""
+										loading="lazy" /></span
+								><span class="brand-slot cambru">CAMBRU</span
+								><span class="brand-slot"
+									><img
+										class="lacoste"
+										src="./assets/branding/lacoste-original.png"
+										width="300"
+										height="80"
+										alt=""
+										loading="lazy" /></span
+								><span class="brand-slot cambru">CAMBRU</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section
+				class="contact"
+				id="contacto"
+				aria-labelledby="contact-title"
+				tabindex="-1"
+			>
+				<div class="contact-inner page-width">
+					<div class="contact-intro">
+						<p class="eyebrow">HABLEMOS</p>
+						<h2 id="contact-title">Tu próxima idea<br />empieza acá.</h2>
+						<p class="contact-description">
+							Contanos qué tenés en mente y pensemos cómo hacerlo realidad.
+						</p>
+						<img
+							class="contact-cube"
+							src="./assets/branding/teseracto-logo-dark-background-v1.png"
+							width="1280"
+							height="1280"
+							loading="lazy"
+							alt=""
+							aria-hidden="true"
+						/>
+					</div>
+					<form id="contact-form" aria-describedby="contact-help">
+						<div class="form-field">
+							<label for="email">Email</label
+							><input
+								id="email"
+								name="email"
+								type="email"
+								autocomplete="email"
+								placeholder="vos@empresa.com"
+								required
+								maxlength="254"
+								aria-describedby="email-error"
+							/>
+							<p class="field-error" id="email-error" hidden></p>
+						</div>
+						<div class="form-field">
+							<label for="idea">Tu idea</label
+							><input
+								id="idea"
+								name="idea"
+								type="text"
+								placeholder="Un título para tu proyecto"
+								required
+								maxlength="120"
+								aria-describedby="idea-error"
+							/>
+							<p class="field-error" id="idea-error" hidden></p>
+						</div>
+						<div class="form-field">
+							<label for="message">Contanos un poco más</label
+							><textarea
+								id="message"
+								name="message"
+								placeholder="¿Qué te gustaría crear o mejorar?"
+								required
+								maxlength="1500"
+								rows="5"
+								aria-describedby="message-error"
+							></textarea>
+							<p class="field-error" id="message-error" hidden></p>
+						</div>
+						<div class="form-actions">
+							<button class="button contact-submit" type="submit" disabled>
+								Conversemos <span aria-hidden="true">→</span>
+							</button>
+							<p class="form-help" id="contact-help">
+								Se abrirá tu aplicación de correo con el mensaje para que
+								confirmes el envío.
+							</p>
+						</div>
+						<p
+							class="form-status"
+							id="form-status"
+							role="status"
+							aria-live="polite"
+							aria-atomic="true"
+						></p>
+						<div class="contact-alternative">
+							<a href="mailto:Facundoemiliano.21@gmail.com"
+								>Facundoemiliano.21@gmail.com</a
+							><button
+								id="copy-message"
+								class="text-button"
+								type="button"
+								hidden
+							>
+								Copiar mensaje
+							</button>
+						</div>
+						<noscript
+							><p>
+								Para escribirnos, usá el enlace de correo de arriba. El
+								formulario necesita JavaScript.
+							</p></noscript
+						>
+					</form>
+				</div>
+			</section>
+		</main>
+		<footer class="site-footer">
+			<div class="footer-inner page-width">
+				<p class="copyright">
+					© <span id="year">2026</span> Teseracto.
+					<span>Todos los derechos reservados.</span>
+				</p>
+				<p class="motto">Pensar más, Hacer mejor</p>
+			</div>
+		</footer>
+	</body>
 </html>
